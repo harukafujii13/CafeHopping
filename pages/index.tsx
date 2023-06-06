@@ -1,21 +1,47 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faBookmark,
+  faHeart,
+  faArrowRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Homepage() {
   return (
     <div>
-      <h1>Homepage</h1>
       <ul>
         <li>
-          <Link href={"/search"}>Search</Link>
+          <Link href={"/search"}>
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="h-[25px]"
+            />
+          </Link>
         </li>
         <li>
-          <Link href={"/bookmark"}>Bookmark</Link>
+          <Link href={"/bookmark"}>
+            <FontAwesomeIcon
+              icon={faBookmark}
+              className="h-[25px]"
+            />
+          </Link>
         </li>
         <li>
-          <Link href={"/favorite"}>Favorite</Link>
+          <Link href={"/favorite"}>
+            <FontAwesomeIcon
+              icon={faHeart}
+              className="h-[25px]"
+            />
+          </Link>
         </li>
         <li>
-          <Link href={"/logout"}>Logout</Link>
+          <Link href={"/logout"}>
+            <FontAwesomeIcon
+              icon={faArrowRightFromBracket}
+              className="h-[25px]"
+            />
+          </Link>
         </li>
       </ul>
     </div>
