@@ -12,7 +12,7 @@ function Homepage() {
     <div className="h-[100vh] bg-light-green">
       <ul className="flex flex-row justify-end text-primary-gray bg-primary-rose h-[6%] items-center px-10">
         <li className="ml-5">
-          <Link href={"/search"}>
+          <Link href={"/"}>
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               className="h-[27px]"
