@@ -1,4 +1,4 @@
-function Bookmark() {
+function Bookmark(): JSX.Element {
   return (
     <div>
       <h1>Bookmark page</h1>

@@ -1,4 +1,4 @@
-function Logout() {
+function Logout(): JSX.Element {
   return (
     <div>
       <h1>Logout page</h1>

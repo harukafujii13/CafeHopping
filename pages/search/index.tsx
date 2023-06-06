@@ -1,4 +1,4 @@
-function Search() {
+function Search(): JSX.Element {
   return (
     <div>
       <h1>Search</h1>
