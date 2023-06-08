@@ -3,6 +3,9 @@ import { connectToDatabase } from "@/lib/db";
 import { NextApiRequest, NextApiResponse } from "next";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== "POST") {
+    return;
+  }
   const data = req.body;
 
   const { username, email, password } = data;
