@@ -23,7 +23,7 @@ export async function verifyPassword(
 //The number of salt rounds determines the computational cost of hashing the password.
 
 //memo3
-//verifyPassword
+//verifyPassword()
 //This function takes a password and a hashed password as input.
 //It uses bcrypt's compare function to compare the plain-text password
 //with the hashed password.
