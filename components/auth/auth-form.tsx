@@ -1,9 +1,11 @@
-import { useState, useRef } from 'react';
+import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
+import { useState, useRef, FormEvent } from 'react';
 
-async function createUser(username, email, password) {
+async function createUser(email: string, password: string) {
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
-    body: JSON.stringify({ username, email, password }),
+    body: JSON.stringify({ email, password }),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -19,23 +21,32 @@ async function createUser(username, email, password) {
 }
 
 function AuthForm() {
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
 
   const [isLogin, setIsLogin] = useState(true);
+  const router = useRouter();
 
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
   }
 
-  async function submitHandler(event) {
+  async function submitHandler(event: FormEvent<HTMLInputElement>) {
     event.preventDefault();
 
-    const enteredEmail = emailInputRef.current.value;
-    const enteredPassword = passwordInputRef.current.value;
+    const enteredEmail = emailInputRef.current!.value;
+    const enteredPassword = passwordInputRef.current!.value;
 
     if (isLogin) {
       //log user in
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: enteredEmail,
+        password: enteredPassword,
+      });
+      if (!result.error) {
+        router.replace('/profile');
+      }
     } else {
       try {
         const result = await createUser(enteredEmail, enteredPassword);
