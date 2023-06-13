@@ -1,5 +1,5 @@
 import { hashPassword } from '@/lib/auth';
-import { connectToDatabase } from '@/lib/db';
+import clientPromise from '@/lib/db';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -24,7 +24,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     return;
   }
 
-  const client = connectToDatabase();
+  const client = clientPromise;
   //if the validation passes, the code connects to the database
 
   const db = (await client).db();

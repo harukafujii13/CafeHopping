@@ -44,6 +44,7 @@ function AuthForm() {
         email: enteredEmail,
         password: enteredPassword,
       });
+
       if (!result.error) {
         router.replace('/profile');
       }
