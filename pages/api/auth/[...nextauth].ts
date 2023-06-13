@@ -9,6 +9,8 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   session: {
     strategy: 'jwt',
+    //The session option is configured with the strategy set to 'jwt'.
+    //This indicates that JSON Web Tokens (JWT) will be used for session management.
   },
   providers: [
     CredentialsProvider({
@@ -61,3 +63,15 @@ export default NextAuth({
     },
   },
 });
+
+//memo1
+//@auth/mongodb-adapter is used to connect NextAuth
+//with MongoDB as the session storage.
+
+//memo2
+//verifyPassword function from the ../../../lib/auth module.
+//This function is used to verify the password provided by the user during authentication.
+
+//memo3
+//clientPromise from the ../../../lib/db module.
+//This promise represents the connection to the MongoDB database.
